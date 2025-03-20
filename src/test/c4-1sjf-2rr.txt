@@ -1,0 +1,25 @@
+#Utiliza 3 colas de prioridad
+DEFINE queues 3
+
+#Definir la estrategia para cada cola
+DEFINE scheduling 1 RR
+DEFINE scheduling 2 RR
+DEFINE scheduling 3 SJF
+
+
+#Definir quantum (prioridad) para cada
+#cola
+DEFINE quantum 1 2
+DEFINE quantum 2 2
+DEFINE quantum 3 2
+
+
+PROCESS p1 6 1 3
+PROCESS p2 5 2 3
+PROCESS p3 4 3 2
+PROCESS p4 3 4 2
+PROCESS p5 2 5 1
+PROCESS p6 1 6 1
+
+
+START

@@ -60,7 +60,7 @@ void roundRobin(Proceso procesos[], int n, int QUANTUM) {
 		tiempoRestante[i] = procesos[i].ejecucion; 
 		procesos[i].espera = 0;
 	}
-	
+	printf("\nSecuencia de ejecución:\n");
 	while (completados < n) {
 		int cambio = 0;  // Para saber si algún proceso ejecutó
 		
@@ -69,6 +69,7 @@ void roundRobin(Proceso procesos[], int n, int QUANTUM) {
 				cambio = 1;
 				
 				int tiempoEjecutado = (tiempoRestante[i] > QUANTUM) ? QUANTUM : tiempoRestante[i];
+				printf("%s(%d) -> ", procesos[i].nombre, tiempoEjecutado);
 				tiempo += tiempoEjecutado;
 				tiempoRestante[i] -= tiempoEjecutado;
 				
@@ -90,7 +91,7 @@ void roundRobin(Proceso procesos[], int n, int QUANTUM) {
 void sjf(Proceso procesos[], int n) {
 	int tiempo = 0, completados = 0;
 	int terminado[MAX_PROCESOS] = {0};
-	
+	printf("\nSecuencia de ejecución:\n");
 	while (completados < n) {
 		int menorTiempo = 9999, index = -1;
 		
@@ -110,6 +111,7 @@ void sjf(Proceso procesos[], int n) {
 			if (procesos[index].espera < 0) procesos[index].espera = 0;
 			terminado[index] = 1;
 			completados++;
+			printf("%s(%d) -> ", procesos[index].nombre, menorTiempo);
 		} else {
 			tiempo++;  // Si no hay procesos disponibles, avanzar el tiempo
 		}
