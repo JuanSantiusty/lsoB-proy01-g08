@@ -39,7 +39,7 @@ void imprimirTablaResultados(Proceso procesos[], int n, int tiempoTotal) {
 	}
 	
 	printf("\nResultados de la simulación\n");
-	printf("Colas de prioridad: 3\n");
+	printf("Colas de prioridad: %d\n",numColas);
 	printf("Tiempo total de la simulación: %d unidades de tiempo\n", tiempoTotal);
 	printf("Tiempo promedio de espera: %.2f unidades de tiempo\n", (float)totalEspera / n);
 	printf("\n# Proceso | Nombre  | T. Llegada | Tamaño | T. Espera | T. Finalización\n");
